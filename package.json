@@ -25,7 +25,10 @@
     "url": "https://github.com/spurtli/react-confetti/issues"
   },
   "homepage": "https://github.com/spurtli/react-confetti#readme",
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "emotion": "^10.0.0-beta.6"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
