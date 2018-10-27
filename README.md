@@ -1,2 +1,3 @@
 # react-confetti
-Hooray!
+
+Hooray! 🎉
