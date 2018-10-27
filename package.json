@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel serve examples/index.html -d tmp",
     "build": "parcel build src/index.js -d lib",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,11 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "jest": "^23.6.0",
     "parcel-bundler": "^1.10.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
