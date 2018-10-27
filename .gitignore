@@ -1,0 +1,5 @@
+.cache/
+.vscode/
+lib/
+node_modules/
+tmp/

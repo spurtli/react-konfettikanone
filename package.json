@@ -1,0 +1,36 @@
+{
+  "name": "react-confetti",
+  "version": "1.0.0",
+  "description": "Hooray – celebration everywhere!",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "parcel serve examples/index.html -d tmp",
+    "build": "parcel build src/index.js -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spurtli/react-confetti.git"
+  },
+  "keywords": [
+    "react",
+    "confetti",
+    "celebrate"
+  ],
+  "author": "Neele Barthel <hello@neele.codes>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spurtli/react-confetti/issues"
+  },
+  "homepage": "https://github.com/spurtli/react-confetti#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "parcel-bundler": "^1.10.3",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}
