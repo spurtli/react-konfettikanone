@@ -1,0 +1,7 @@
+.babelrc
+.gitignore
+.nvmrc
+.travis.yml
+jest.config.js
+config/
+examples/
