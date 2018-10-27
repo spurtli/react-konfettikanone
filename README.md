@@ -1,3 +1,4 @@
-# react-confetti
+# react-konfettikanone
 
 Hooray! 🎉
+
