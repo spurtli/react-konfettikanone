@@ -1,6 +1,10 @@
-<img src="./docs/assets/logo.png" alt="react-konfettikanone" style="width:500px; display:block; margin: 0 auto;"/>
+<div align="center">
+  <img src="./docs/assets/logo.png" alt="react-konfettikanone" width="500px" />
+</div>
 
-<img src="https://travis-ci.org/spurtli/react-konfettikanone.svg?branch=master" alt="Travis CI" style="width:auto; display:block; margin: 0 auto;"/>
+<div align="center">
+  <img src="https://travis-ci.org/spurtli/react-konfettikanone.svg?branch=master" alt="Travis CI"/>
+</div>
 
 ## What it looks like
 
@@ -8,8 +12,16 @@
 
 ## Install
 
+**npm**
+
 ```bash
 npm i -S react-konfettikanone
+```
+
+**yarn**
+
+```bash
+yarn add react-konfettikanone
 ```
 
 ## Example
@@ -20,9 +32,9 @@ import {Konfettikanone} from "react-konfettikanone";
 
 ```JSX
 render() {
-  <div className={wrapper}>
+  <div>
     <Konfettikanone className={customStyles}>
-      <div className={card}>
+      <div>
         <h2>🎊 Hooray, hooray! 🎊</h2>
         <p>Let's celebrate and throw some confetti!</p>
       </div>
@@ -33,24 +45,24 @@ render() {
 
 ## Props
 
-`<Konfettikanone />` accepts the following props
+### `<Konfettikanone />`
 
-### `className`
+#### `className`
 
 Extend custom styles
 
-### `colors`
+#### `colors`
 
 Array of Strings
 `["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"]`
 
-### `density` – coming soon
+#### `density` – coming soon
 
-### `duration` – coming soon
+#### `duration` – coming soon
 
-### `shape` – coming soon
+#### `shape` – coming soon
 
-### `size` – coming soon
+#### `size` – coming soon
 
 Object
 `{'10px', '8px'}`
@@ -58,5 +70,4 @@ Object
 ## License
 
 Licensed under the MIT License, Copyright © 2018 Neele Barthel.
-
 See [LICENSE](./LICENSE) for more information.
