@@ -5,4 +5,5 @@
 jest.config.js
 rollup.config.js
 config/
+docs/
 examples/
