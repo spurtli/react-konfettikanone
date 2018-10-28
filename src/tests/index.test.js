@@ -1,11 +1,11 @@
-import React from "react"
-import {shallow} from "enzyme"
-import {Confetti} from "../index"
+import React from "react";
+import {mount} from "enzyme";
+import {Konfettikanone} from "../index";
 
 describe("<Confetti />", () => {
   it("renders a confetti component", () => {
-    const confetti = shallow(<Confetti />)
+    const confetti = mount(<Konfettikanone />);
 
-    expect(confetti.exists()).toBe(true)
-  })
-})
+    expect(confetti.exists()).toBe(true);
+  });
+});
