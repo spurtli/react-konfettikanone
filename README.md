@@ -1,5 +1,6 @@
-![react-konfettikanone](./docs/assets/logo.png)
-![Travis CI](https://travis-ci.org/spurtli/react-konfettikanone.svg?branch=master)
+<img src="./docs/assets/logo.png" alt="react-konfettikanone" style="width:500px; display:block; margin: 0 auto;"/>
+
+<img src="https://travis-ci.org/spurtli/react-konfettikanone.svg?branch=master" alt="Travis CI" style="width:auto; display:block; margin: 0 auto;"/>
 
 ## What it looks like
 
@@ -17,7 +18,7 @@ npm i -S react-konfettikanone
 import {Konfettikanone} from "react-konfettikanone";
 ```
 
-```js
+```JSX
 render() {
   <div className={wrapper}>
     <Konfettikanone className={customStyles}>
