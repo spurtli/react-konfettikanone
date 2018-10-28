@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, createRef} from "react";
 import classNames from "classnames";
 
 import * as styles from "./styles";
@@ -7,13 +7,12 @@ export class Konfettikanone extends Component {
   static defaultProps = {
     colors: ["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"],
     speed: ["1", "1.3", "1.7"],
-    type: ["Slow", "Medium", "Fast"]
+    types: ["Slow", "Medium", "Fast"]
   };
 
   constructor(props) {
     super(props);
-    this.state = {};
-    this.confettiWrapper = React.createRef();
+    this.confettiWrapper = createRef();
   }
 
   shouldComponentUpdate() {
@@ -38,42 +37,57 @@ export class Konfettikanone extends Component {
 
   generateConfetti() {
     for (let i = 0; i < 100; i++) {
-      const randomValues = this.calcRandomValues();
-      const type = `down${randomValues.type}`;
+      const [size, left, backgroundColor, typeValue, speed] = this.calcRandomValues();
+      const {current: target} = this.confettiWrapper;
+      const type = `down${typeValue}`;
 
       const inlineStyles = {
-        height: randomValues.size,
-        width: randomValues.size,
-        left: randomValues.left,
-        backgroundColor: randomValues.color,
+        height: size,
+        width: size,
+        left,
+        backgroundColor,
         animation: `${styles[type](
-          `${this.confettiWrapper.current.clientHeight + 20}px`
-        )} ${randomValues.speed}s linear ${Math.random() * 3}s 1 forwards`
+          `${target.clientHeight + 20}px`
+        )} ${speed}s linear ${Math.random() * 3}s 1 forwards`
       };
 
       const particle = document.createElement("div");
       Object.assign(particle.style, inlineStyles);
       particle.className = styles.particle;
 
-      this.confettiWrapper.current.appendChild(particle);
+      target.appendChild(particle);
     }
   }
 
   calcRandomValues() {
-    const size = `${Math.floor(Math.random() * 3) + 7}px`;
-    const color = this.props.colors[
-      Math.floor(Math.random() * this.props.colors.length)
-    ];
-    const type = this.props.type[
-      Math.floor(Math.random() * this.props.type.length)
-    ];
-    const speed = this.props.speed[
-      Math.floor(Math.random() * this.props.speed.length)
-    ];
-    const left = `${Math.floor(
-      Math.random() * this.confettiWrapper.current.clientWidth
-    )}px`;
+    const {colors, types, speed: speeds} = this.props
+    const {current: target} = this.confettiWrapper;
 
-    return {size, left, color, type, speed};
+    const size = `${Konfettikanone.random(3) + 7}px`;
+    const color = Konfettikanone.pickRandomElement(colors);
+    const type = Konfettikanone.pickRandomElement(types);
+    const speed = Konfettikanone.pickRandomElement(speeds);
+    const left = `${Konfettikanone.random(target.clientWidth)}px`;
+
+    return [
+      size,
+      left,
+      color,
+      type,
+      speed
+    ];
   }
+
+  static pickRandomElement(a) {
+    if (a.length === 0) {
+      return null;
+    }
+
+    return a[Konfettikanone.random(a.length - 1)]
+  }
+
+  static random(n = 1) {
+    return Math.round(Math.random() * n);
+  }
+
 }
