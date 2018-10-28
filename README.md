@@ -27,17 +27,18 @@ yarn add react-konfettikanone
 ## Example
 
 ```js
-import {Konfettikanone} from "react-konfettikanone";
+import {Konfettikanone, Launcher} from "react-konfettikanone";
 ```
 
 ```JSX
 render() {
   <div>
-    <Konfettikanone className={customStyles}>
+    <Konfettikanone launch={this.state.launch}>
       <div>
         <h2>🎊 Hooray, hooray! 🎊</h2>
         <p>Let's celebrate and throw some confetti!</p>
       </div>
+      <Launcher onClick={() => this.setState({launch: true}))} />
     </Konfettikanone>
   </div>
 }
@@ -60,6 +61,14 @@ Array of Strings
 
 #### `duration` – coming soon
 
+#### `launch`
+
+Boolean
+
+#### `onLaunchEnd`
+
+Function
+
 #### `shape` – coming soon
 
 #### `size` – coming soon
@@ -67,7 +76,15 @@ Array of Strings
 Object
 `{'10px', '8px'}`
 
+---
+
+### `<Launcher />`
+
+#### `onClick`
+
+Function
+
 ## License
 
-Licensed under the MIT License, Copyright © 2018 Neele Barthel.
+Licensed under the MIT License, Copyright © 2018 Neele Barthel.<br>
 See [LICENSE](./LICENSE) for more information.

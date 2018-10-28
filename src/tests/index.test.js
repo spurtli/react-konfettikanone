@@ -1,31 +1,31 @@
 import React from "react";
 import {mount} from "enzyme";
-import {Konfettikanone} from "../index";
+import {Konfettikanone, Launcher} from "../index";
 
-describe("<Confetti />", () => {
-  it("renders a confetti component", () => {
-    const confetti = mount(<Konfettikanone/>);
+describe("<Konfettikanone />", () => {
+  it("renders a konfettikanone component", () => {
+    const konfettikanone = mount(<Konfettikanone />);
 
-    expect(confetti.exists()).toBe(true);
+    expect(konfettikanone.exists()).toBe(true);
   });
 
   describe("Konfettikanone.pickRandomElement(…)", () => {
     it("should pick a random value from Array", () => {
-      const a = [1, 2, 3, 4, 5]
+      const a = [1, 2, 3, 4, 5];
       const p = Konfettikanone.pickRandomElement(a);
 
       expect(a).toContain(p);
     });
 
     it("should return null for empty Array", () => {
-      const a = []
+      const a = [];
       const p = Konfettikanone.pickRandomElement(a);
 
       expect(p).toBe(null);
     });
 
     it("should always return the first/same element for Array of length=1", () => {
-      const a = [1]
+      const a = [1];
       const p1 = Konfettikanone.pickRandomElement(a);
       const p2 = Konfettikanone.pickRandomElement(a);
 
