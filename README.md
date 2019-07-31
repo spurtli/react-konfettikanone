@@ -12,12 +12,6 @@
 
 ## Install
 
-**npm**
-
-```bash
-npm i -S react-konfettikanone
-```
-
 **yarn**
 
 ```bash
@@ -27,7 +21,7 @@ yarn add react-konfettikanone
 ## Example
 
 ```js
-import {Konfettikanone, Launcher} from "react-konfettikanone";
+import { Konfettikanone, Launcher } from "react-konfettikanone";
 ```
 
 ```JSX
