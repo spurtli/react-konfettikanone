@@ -1,7 +1,7 @@
-import resolve from "rollup-plugin-node-resolve"
-import babel from "rollup-plugin-babel"
-import commonjs from "rollup-plugin-commonjs"
-import {uglify} from "rollup-plugin-uglify"
+import resolve from "rollup-plugin-node-resolve";
+import babel from "rollup-plugin-babel";
+import commonjs from "rollup-plugin-commonjs";
+import { uglify } from "rollup-plugin-uglify";
 
 export default {
   input: "src/index.js",
@@ -12,8 +12,7 @@ export default {
   external: ["react", "emotion", "classnames"],
   plugins: [
     resolve({
-      module: true,
-      main: true
+      mainFields: ["module", "main"]
     }),
     babel({
       exclude: "node_modules/**" // only transpile our source code
@@ -25,4 +24,4 @@ export default {
     }),
     uglify()
   ]
-}
+};
