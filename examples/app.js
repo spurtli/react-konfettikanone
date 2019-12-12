@@ -1,7 +1,7 @@
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import ReactDOM from "react-dom";
 
-import {Konfettikanone, Launcher} from "../src/index.js";
+import { Konfettikanone, Launcher } from "../src/index.js";
 import * as styles from "./styles.js";
 
 class App extends PureComponent {
@@ -16,7 +16,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const {launch} = this.state;
+    const { launch } = this.state;
 
     return (
       <>
@@ -49,11 +49,11 @@ class App extends PureComponent {
   }
 
   onLaunchEnd() {
-    this.setState({launch: false});
+    this.setState({ launch: false });
   }
 
   handleLaunch() {
-    this.setState({launch: true});
+    this.setState({ launch: true });
   }
 }
 
