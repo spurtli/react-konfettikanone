@@ -1,92 +1,93 @@
-import React, {Component, createRef} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import * as styles from "./styles";
 
-export class Konfettikanone extends Component {
-  static defaultProps = {
-    colors: ["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"],
-    speed: ["1", "1.3", "1.7"],
-    types: ["Slow", "Medium", "Fast"],
-    duration: 5000
+function random(n = 1) {
+  return Math.round(Math.random() * n);
+}
+
+const defaultProps = {
+  colors: ["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"],
+  types: ["Slow", "Medium", "Fast"],
+  duration: 10,
+  particles: 200,
+  launch: false
+};
+
+export function Konfettikanone(props) {
+  const {
+    colors,
+    className,
+    children,
+    duration,
+    launch,
+    particles,
+    types,
+    onLaunchEnd
+  } = {
+    ...defaultProps,
+    ...props
   };
+  const confettiWrapper = useRef(null);
+  const [confetti, setConfetti] = useState(null);
+  const mergedClass = classNames(styles.wrapper, className);
 
-  constructor(props) {
-    super(props);
-    this.confettiWrapper = createRef();
+  function getRandomParticle() {
+    const wrapperHeight = confettiWrapper.current.offsetHeight;
+    const wrapperWidth = confettiWrapper.current.offsetWidth;
+    const relativeDuration = duration * wrapperHeight;
+    const animationTime = relativeDuration * 0.4;
+    const delay = Math.random() * (relativeDuration - animationTime);
+    const animationDurations = [
+      animationTime,
+      animationTime * 0.8,
+      animationTime * 0.7
+    ];
+    const randomDuration =
+      animationDurations[random(animationDurations.length - 1)];
+    const randomColor = colors[random(colors.length - 1)];
+    const randomStyle = types[random(types.length - 1)];
+    const baseSize = 7;
+    const baseSizeVariance = 3;
+
+    return {
+      height: `${random(baseSizeVariance) + baseSize}px`,
+      width: `${random(baseSizeVariance) + baseSize}px`,
+      left: `${random(wrapperWidth)}px`,
+      backgroundColor: randomColor,
+      animation: `${styles[randomStyle](
+        `${wrapperHeight + baseSize + baseSizeVariance}px`
+      )} ${randomDuration}ms linear ${delay}ms 1 forwards`
+    };
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.launch) {
-      this.generateConfetti();
-      setTimeout(nextProps.onLaunchEnd(), nextProps.duration);
+  function createConfetti() {
+    return [...Array(particles)].map((_x, index) => {
+      const randomStyle = getRandomParticle();
+
+      return (
+        <div key={index} style={randomStyle} className={styles.particle} />
+      );
+    });
+  }
+
+  useEffect(() => {
+    if (launch) {
+      setConfetti(createConfetti());
+      const timer = setTimeout(() => {
+        onLaunchEnd();
+      }, duration * confettiWrapper.current.offsetHeight);
+      return () => clearTimeout(timer);
+    } else {
+      setConfetti(null);
     }
-    return false;
-  }
+  }, [confettiWrapper, launch]);
 
-  render() {
-    const {children, className, launch, onLaunchEnd, ...props} = this.props;
-    const mergedClass = classNames(styles.wrapper, className);
-
-    return (
-      <div ref={this.confettiWrapper} className={mergedClass} {...props}>
-        {children}
-      </div>
-    );
-  }
-
-  generateConfetti() {
-    for (let i = 0; i < 200; i++) {
-      const [
-        size,
-        left,
-        backgroundColor,
-        typeValue,
-        speed
-      ] = this.calcRandomValues();
-      const {current: target} = this.confettiWrapper;
-      const type = `down${typeValue}`;
-
-      const inlineStyles = {
-        height: size,
-        width: size,
-        left,
-        backgroundColor,
-        animation: `${styles[type](
-          `${target.clientHeight + 20}px`
-        )} ${speed}s linear ${Math.random() * 3}s 1 forwards`
-      };
-
-      const particle = document.createElement("div");
-      Object.assign(particle.style, inlineStyles);
-      particle.className = styles.particle;
-
-      target.appendChild(particle);
-    }
-  }
-
-  calcRandomValues() {
-    const {colors, types, speed: speeds} = this.props;
-    const {current: target} = this.confettiWrapper;
-
-    const size = `${Konfettikanone.random(3) + 7}px`;
-    const color = Konfettikanone.pickRandomElement(colors);
-    const type = Konfettikanone.pickRandomElement(types);
-    const speed = Konfettikanone.pickRandomElement(speeds);
-    const left = `${Konfettikanone.random(target.clientWidth)}px`;
-
-    return [size, left, color, type, speed];
-  }
-
-  static pickRandomElement(a) {
-    if (a.length === 0) {
-      return null;
-    }
-
-    return a[Konfettikanone.random(a.length - 1)];
-  }
-
-  static random(n = 1) {
-    return Math.round(Math.random() * n);
-  }
+  return (
+    <div ref={confettiWrapper} className={mergedClass}>
+      {confetti}
+      {children}
+    </div>
+  );
 }
