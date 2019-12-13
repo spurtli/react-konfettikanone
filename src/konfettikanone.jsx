@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import * as styles from "./styles";
@@ -71,7 +71,7 @@ export function Konfettikanone(props) {
     });
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (launch) {
       setConfetti(createConfetti());
       const timer = setTimeout(() => {
