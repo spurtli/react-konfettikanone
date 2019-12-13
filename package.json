@@ -6,7 +6,7 @@
   "module": "lib/index.module.js",
   "scripts": {
     "start": "parcel serve examples/index.html -d tmp",
-    "build": "rollup -c",
+    "build": "rollup -c rollup.config.ts",
     "test": "jest",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
@@ -38,8 +38,11 @@
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.9.16",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.9.0",
     "enzyme": "^3.10.0",
@@ -52,8 +55,10 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
     "rollup-plugin-uglify": "^6.0.4",
     "semantic-release": "^15.13.31",
-    "travis-deploy-once": "^5.0.11"
+    "travis-deploy-once": "^5.0.11",
+    "typescript": "^3.7.3"
   }
 }

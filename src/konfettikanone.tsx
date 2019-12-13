@@ -15,7 +15,17 @@ const defaultProps = {
   launch: false
 };
 
-export function Konfettikanone(props) {
+interface Props {
+  className?: string;
+  colors: string[];
+  duration?: number;
+  launch: boolean;
+  particles?: number;
+  types?: string[];
+  onLaunchEnd?(): void;
+}
+
+export function Konfettikanone(props: Props) {
   const {
     colors,
     className,
@@ -28,13 +38,13 @@ export function Konfettikanone(props) {
     ...defaultProps,
     ...props
   };
-  const confettiWrapper = useRef(null);
-  const [confetti, setConfetti] = useState(null);
+  const confettiWrapper = useRef<HTMLDivElement>(null);
+  const [confetti, setConfetti] = useState<null | React.ReactNode>(null);
   const mergedClass = classNames(styles.wrapper, className);
 
   function getRandomParticle() {
-    const wrapperHeight = confettiWrapper.current.offsetHeight;
-    const wrapperWidth = confettiWrapper.current.offsetWidth;
+    const wrapperHeight = confettiWrapper?.current?.offsetHeight || 0;
+    const wrapperWidth = confettiWrapper?.current?.offsetWidth;
     const relativeDuration = duration * wrapperHeight;
     const animationTime = relativeDuration * 0.4;
     const delay = Math.random() * (relativeDuration - animationTime);
@@ -76,8 +86,10 @@ export function Konfettikanone(props) {
       setConfetti(createConfetti());
 
       const timer = setTimeout(() => {
-        onLaunchEnd();
-      }, duration * confettiWrapper.current.offsetHeight);
+        if (onLaunchEnd) {
+          onLaunchEnd();
+        }
+      }, duration * confettiWrapper?.current?.offsetHeight);
 
       return () => clearTimeout(timer);
     }

@@ -1,14 +1,18 @@
 import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import resolve from "rollup-plugin-node-resolve";
-import { uglify } from "rollup-plugin-uglify";
+import typescript from "rollup-plugin-typescript2";
 
 const pkg = require("./package.json");
+const dependencies = [
+  ...Object.keys(pkg.dependencies),
+  ...Object.keys(pkg.peerDependencies)
+];
 
 const libraryName = "reactKonfettikanone";
 
 export default {
-  input: "src/index.js",
+  input: "src/index.ts",
   output: [
     {
       file: pkg.main,
@@ -23,11 +27,12 @@ export default {
     },
     { file: pkg.module, format: "es", sourcemap: true }
   ],
-  external: ["react", "emotion", "classnames"],
+  external: dependencies,
   plugins: [
+    typescript(),
     babel({
       exclude: "node_modules/**", // only transpile our source code
-      extensions: [".js", ".jsx"]
+      extensions: [".ts", ".tsx"]
     }),
     commonjs({
       include: "node_modules/classnames/*",
@@ -36,7 +41,7 @@ export default {
     }),
     resolve({
       mainFields: ["module", "main"],
-      extensions: [".js", ".jsx"]
+      extensions: [".ts", ".tsx"]
     })
   ]
 };
