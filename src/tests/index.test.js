@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import { Konfettikanone, Launcher } from "../index";
+import { Konfettikanone } from "../index";
 
 describe("<Konfettikanone />", () => {
   it.skip("renders a konfettikanone component", () => {

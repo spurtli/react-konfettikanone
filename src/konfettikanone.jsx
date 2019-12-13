@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import * as styles from "./styles";
@@ -71,15 +71,15 @@ export function Konfettikanone(props) {
     });
   }
 
-  useLayoutEffect(() => {
-    if (launch) {
+  useEffect(() => {
+    if (launch && confettiWrapper.current != null) {
       setConfetti(createConfetti());
+
       const timer = setTimeout(() => {
         onLaunchEnd();
       }, duration * confettiWrapper.current.offsetHeight);
+
       return () => clearTimeout(timer);
-    } else {
-      setConfetti(null);
     }
   }, [confettiWrapper, launch]);
 

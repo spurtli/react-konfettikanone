@@ -1,59 +1,49 @@
-import React, { PureComponent } from "react";
+import React, { useState, PureComponent } from "react";
 import ReactDOM from "react-dom";
 
-import { Konfettikanone, Launcher } from "../src/index.js";
+import { Konfettikanone } from "../src/index.js";
 import * as styles from "./styles.js";
 
-class App extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      launch: false
-    };
+function App() {
+  const [launch, setLaunch] = useState(false);
 
-    this.onLaunchEnd = this.onLaunchEnd.bind(this);
-    this.handleLaunch = this.handleLaunch.bind(this);
+  function onLaunchEnd() {
+    setLaunch(false);
   }
 
-  render() {
-    const { launch } = this.state;
+  function handleLaunch() {
+    setLaunch(true);
+  }
 
-    return (
-      <>
-        <h1 className={styles.h1}>🎉 react-konfettikanone 🎉</h1>
-        <div className={styles.wrapper}>
-          <div className={styles.card}>
-            <Konfettikanone
-              launch={launch}
-              onLaunchEnd={this.onLaunchEnd}
-              className={styles.customStyles}
-            />
-            <h2>🎊 Hooray, hooray! 🎊</h2>
-            <p>
-              Floating everywhere
-              <br />
-              Show me how to find
-              <br />
-              Confetti, confetti, confetti
-              <br />
-              Cover us this time
-              <br />
-            </p>
-            <p>Let's celebrate and throw some confetti!</p>
-            <Launcher onClick={this.handleLaunch} />
-          </div>
+  return (
+    <>
+      <h1 className={styles.h1}>🎉 react-konfettikanone 🎉</h1>
+      <div className={styles.wrapper}>
+        <div className={styles.card}>
+          <Konfettikanone
+            launch={launch}
+            onLaunchEnd={onLaunchEnd}
+            className={styles.customStyles}
+          />
+          <h2>🎊 Hooray, hooray! 🎊</h2>
+          <p>
+            Floating everywhere
+            <br />
+            Show me how to find
+            <br />
+            Confetti, confetti, confetti
+            <br />
+            Cover us this time
+            <br />
+          </p>
+          <p>Let's celebrate and throw some confetti!</p>
+          <button type="button" onClick={handleLaunch}>
+            Hooray!
+          </button>
         </div>
-      </>
-    );
-  }
-
-  onLaunchEnd() {
-    this.setState({ launch: false });
-  }
-
-  handleLaunch() {
-    this.setState({ launch: true });
-  }
+      </div>
+    </>
+  );
 }
 
 const app = document.querySelector("#app");
