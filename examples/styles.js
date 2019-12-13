@@ -1,8 +1,6 @@
-import {css} from "emotion";
+import { css } from "emotion";
 
-export const customStyles = css`
-  background: pink;
-`;
+export const customStyles = css``;
 
 export const wrapper = css`
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
@@ -10,6 +8,7 @@ export const wrapper = css`
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
 `;
 
 export const card = css`

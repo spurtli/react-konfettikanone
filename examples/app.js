@@ -22,27 +22,26 @@ class App extends PureComponent {
       <>
         <h1 className={styles.h1}>🎉 react-konfettikanone 🎉</h1>
         <div className={styles.wrapper}>
-          <Konfettikanone
-            launch={launch}
-            onLaunchEnd={this.onLaunchEnd}
-            className={styles.customStyles}
-          >
-            <div className={styles.card}>
-              <h2>🎊 Hooray, hooray! 🎊</h2>
-              <p>
-                Floating everywhere
-                <br />
-                Show me how to find
-                <br />
-                Confetti, confetti, confetti
-                <br />
-                Cover us this time
-                <br />
-              </p>
-              <p>Let's celebrate and throw some confetti!</p>
-              <Launcher onClick={this.handleLaunch} />
-            </div>
-          </Konfettikanone>
+          <div className={styles.card}>
+            <Konfettikanone
+              launch={launch}
+              onLaunchEnd={this.onLaunchEnd}
+              className={styles.customStyles}
+            />
+            <h2>🎊 Hooray, hooray! 🎊</h2>
+            <p>
+              Floating everywhere
+              <br />
+              Show me how to find
+              <br />
+              Confetti, confetti, confetti
+              <br />
+              Cover us this time
+              <br />
+            </p>
+            <p>Let's celebrate and throw some confetti!</p>
+            <Launcher onClick={this.handleLaunch} />
+          </div>
         </div>
       </>
     );

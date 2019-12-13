@@ -19,7 +19,6 @@ export function Konfettikanone(props) {
   const {
     colors,
     className,
-    children,
     duration,
     launch,
     particles,
@@ -85,9 +84,12 @@ export function Konfettikanone(props) {
   }, [confettiWrapper, launch]);
 
   return (
-    <div ref={confettiWrapper} className={mergedClass}>
-      {confetti}
-      {children}
-    </div>
+    <>
+      {launch ? (
+        <div ref={confettiWrapper} className={mergedClass}>
+          {confetti}
+        </div>
+      ) : null}
+    </>
   );
 }
