@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Hooray – celebration everywhere!",
   "main": "lib/index.js",
-  "module": "src/index.js",
+  "module": "lib/index.module.js",
   "scripts": {
     "start": "parcel serve examples/index.html -d tmp",
     "build": "rollup -c",

@@ -1,27 +1,42 @@
-import resolve from "rollup-plugin-node-resolve";
 import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
+import resolve from "rollup-plugin-node-resolve";
 import { uglify } from "rollup-plugin-uglify";
+
+const pkg = require("./package.json");
+
+const libraryName = "reactKonfettikanone";
 
 export default {
   input: "src/index.js",
-  output: {
-    file: "lib/index.js",
-    format: "cjs"
-  },
+  output: [
+    {
+      file: pkg.main,
+      name: libraryName,
+      format: "umd",
+      sourcemap: true,
+      globals: {
+        react: "React",
+        classnames: "classNames",
+        emotion: "emotion"
+      }
+    },
+    { file: pkg.module, format: "es", sourcemap: true }
+  ],
   external: ["react", "emotion", "classnames"],
   plugins: [
-    resolve({
-      mainFields: ["module", "main"]
-    }),
     babel({
-      exclude: "node_modules/**" // only transpile our source code
+      exclude: "node_modules/**", // only transpile our source code
+      extensions: [".js", ".jsx"]
     }),
     commonjs({
       include: "node_modules/classnames/*",
       extensions: [".js"],
       sourceMap: false
     }),
-    uglify()
+    resolve({
+      mainFields: ["module", "main"],
+      extensions: [".js", ".jsx"]
+    })
   ]
 };

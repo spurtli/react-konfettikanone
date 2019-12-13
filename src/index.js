@@ -1,2 +1,2 @@
-export {Konfettikanone} from "./konfettikanone";
-export {Launcher} from "./launcher";
+export { Konfettikanone } from "./konfettikanone";
+export { Launcher } from "./launcher";
