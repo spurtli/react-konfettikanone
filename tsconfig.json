@@ -9,7 +9,11 @@
     "outDir": "./lib",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "~*": ["./*"]
+    }
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]

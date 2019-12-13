@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import { Konfettikanone } from "../lib/index.js";
+import { Konfettikanone } from "../src/index.ts";
 import * as styles from "./styles.js";
 
 function App() {
