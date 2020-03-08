@@ -3,7 +3,8 @@
 .nvmrc
 .travis.yml
 jest.config.js
-rollup.config.js
+rollup.config.ts
+tsconfig.json
 config/
 docs/
 examples/
