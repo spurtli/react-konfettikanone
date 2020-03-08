@@ -1,11 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-
+import { random } from "./utilities";
 import * as styles from "./styles";
-
-function random(n = 1) {
-  return Math.round(Math.random() * n);
-}
 
 const defaultProps = {
   colors: ["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"],
@@ -17,9 +13,9 @@ const defaultProps = {
 
 interface Props {
   className?: string;
-  colors: string[];
+  colors?: string[];
   duration?: number;
-  launch: boolean;
+  launch?: boolean;
   particles?: number;
   types?: string[];
   onLaunchEnd?(): void;

@@ -5,42 +5,26 @@
 <div align="center">
   <img src="https://travis-ci.org/spurtli/react-konfettikanone.svg?branch=master" alt="Travis CI"/>
 </div>
+<br />
 
-## What it looks like
+`react-konfettikanone` is a light-weight and hardware accelerated React package that lets you celebrate with confetti 🎉🎊
+<br />
+
+### ✨ What it looks like
 
 ![react-konfettikanone](./docs/assets/demo.png)
 
-## Install
+<br />
 
-**yarn**
+### 🚀 Setup
 
 ```bash
 yarn add react-konfettikanone
 ```
 
-## Example
+<br />
 
-```js
-import { Konfettikanone, Launcher } from "react-konfettikanone";
-```
-
-```JSX
-render() {
-  <div>
-    <Konfettikanone launch={this.state.launch}>
-      <div>
-        <h2>🎊 Hooray, hooray! 🎊</h2>
-        <p>Let's celebrate and throw some confetti!</p>
-      </div>
-      <Launcher onClick={() => this.setState({launch: true}))} />
-    </Konfettikanone>
-  </div>
-}
-```
-
-## Props
-
-### `<Konfettikanone />`
+### 👩🏼‍💻 How to use `<Konfettikanone />`
 
 #### `className`
 
@@ -51,9 +35,13 @@ Extend custom styles
 Array of Strings
 `["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"]`
 
-#### `density` – coming soon
+#### `particles`
 
-#### `duration` – coming soon
+Number
+
+#### `duration`
+
+Number
 
 #### `launch`
 
@@ -63,22 +51,33 @@ Boolean
 
 Function
 
-#### `shape` – coming soon
+<br />
 
-#### `size` – coming soon
+### 👷🏼‍♀️ Example
 
-Object
-`{'10px', '8px'}`
+```jsx
+import { Konfettikanone } from "react-konfettikanone";
+```
 
----
+```jsx
+function CelebrationCard() {
+  return (
+    <Konfettikanone launch={this.state.launch}>
+      <div>
+        <h2>🎊 Hooray, hooray! 🎊</h2>
+        <p>Let's celebrate and throw some confetti!</p>
+      </div>
+      <button type="button" onClick={() => this.setLaunched(true)}>
+        Confetti!
+      </button>
+    </Konfettikanone>
+  );
+}
+```
 
-### `<Launcher />`
+<br />
 
-#### `onClick`
-
-Function
-
-## License
+### 🎫 License
 
 Licensed under the MIT License, Copyright © 2018 Neele Barthel.<br>
 See [LICENSE](./LICENSE) for more information.
