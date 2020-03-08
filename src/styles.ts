@@ -14,6 +14,7 @@ export const wrapper = css`
 export const particle = css`
   position: absolute;
   top: -10px;
+  will-change: transform;
 `;
 
 export const Slow = (height: string) => {
