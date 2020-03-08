@@ -9,6 +9,7 @@ export const wrapper = css`
   right: 0;
   bottom: 0;
   overflow: hidden;
+  will-change: transform;
 `;
 
 export const particle = css`

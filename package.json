@@ -28,7 +28,8 @@
   "homepage": "https://github.com/spurtli/react-konfettikanone#readme",
   "dependencies": {
     "classnames": "^2.2.6",
-    "emotion": "^10.0.23"
+    "emotion": "^10.0.23",
+    "utilities": "^1.0.5"
   },
   "peerDependencies": {
     "react": "^16.12.0",
