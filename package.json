@@ -31,33 +31,33 @@
     "emotion": "^10.0.23"
   },
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-react": "^7.7.4",
-    "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.16",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.23",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.1.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "jest": "^24.9.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "rollup": "^1.27.11",
-    "rollup-plugin-babel": "^4.3.3",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "rollup": "^2.0.2",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
+    "rollup-plugin-typescript2": "^0.26.0",
     "rollup-plugin-uglify": "^6.0.4",
-    "semantic-release": "^15.13.31",
+    "semantic-release": "^17.0.4",
     "travis-deploy-once": "^5.0.11",
-    "typescript": "^3.7.3"
+    "typescript": "^3.8.3"
   }
 }
