@@ -3,7 +3,7 @@ import { mount } from "enzyme";
 import { Konfettikanone } from "../index";
 
 describe("<Konfettikanone />", () => {
-  it.skip("renders a konfettikanone component", () => {
+  it("renders a konfettikanone component", () => {
     const konfettikanone = mount(<Konfettikanone />);
 
     expect(konfettikanone.exists()).toBe(true);
